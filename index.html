@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grace Ling</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:          #1e1b17;
+      --bg-2:        #252119;
+      --bg-3:        #2b271f;
+      --ink:         #f0ece3;
+      --ink-mid:     #c8c2b6;
+      --ink-dim:     #7a746e;
+      --accent:      #c9915a;
+      --accent-soft: rgba(201,145,90,0.15);
+      --rule:        #2a2a26;
+      --font:        'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      font-size: 16px;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 3.5rem;
+      background: rgba(30,27,23,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-name {
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 400;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink-mid); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 10rem 3.5rem 7rem;
+      border-bottom: 1px solid var(--rule);
+      max-width: 980px;
+      opacity: 0; animation: fadeUp 1s ease forwards 0.2s;
+    }
+
+    .hero-label {
+      font-size: 0.8rem; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 2.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .hero-label::before {
+      content: ''; width: 2.5rem; height: 1px; background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(3.8rem, 7vw, 7rem);
+      font-weight: 300; line-height: 1.05;
+      letter-spacing: -0.02em; margin-bottom: 2.5rem;
+      color: var(--ink);
+    }
+
+    .hero-statement {
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 56ch; line-height: 1.8;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .tag {
+      font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink-dim);
+      border: 1px solid var(--rule);
+      padding: 0.45rem 1.1rem; border-radius: 2rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── SHARED SECTION ── */
+    section {
+      padding: 6rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-dim); margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; letter-spacing: -0.01em;
+      color: var(--ink); margin-bottom: 1.5rem;
+    }
+
+    .section-intro {
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 56ch; line-height: 1.9;
+      margin-bottom: 4rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg-2); }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem; align-items: start;
+    }
+
+    .about-left p {
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 2; margin-bottom: 1.5rem;
+    }
+    .about-left p strong { color: var(--ink); font-weight: 500; }
+
+    .about-right {
+      display: flex; flex-direction: column;
+      border-top: 1px solid var(--rule);
+    }
+    .detail {
+      display: flex; flex-direction: column; gap: 0.4rem;
+      padding: 1.4rem 0; border-bottom: 1px solid var(--rule);
+    }
+    .detail-k {
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+    .detail-v {
+      font-size: 0.97rem; font-weight: 300;
+      color: var(--ink); line-height: 1.65;
+    }
+    .detail-v a { color: var(--accent); text-decoration: none; }
+    .detail-v a:hover { text-decoration: underline; }
+
+    /* ── WORK ── */
+    #work { background: var(--bg); }
+
+    .work-list { display: flex; flex-direction: column; }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start; gap: 2rem;
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .work-item:last-child { border-bottom: 1px solid var(--rule); }
+
+    .work-left { display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .work-type {
+      font-size: 0.73rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .work-title {
+      font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+      font-weight: 400; line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .work-desc {
+      font-size: 1rem; font-weight: 300;
+      color: var(--ink-mid);
+      max-width: 56ch; line-height: 1.9;
+    }
+
+    .work-status {
+      font-size: 0.7rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.45rem 1rem; border-radius: 2rem;
+      border: 1px solid var(--rule);
+      color: var(--ink-dim); white-space: nowrap;
+      align-self: start;
+    }
+    .work-status.live {
+      border-color: rgba(201,145,90,0.5);
+      color: var(--accent);
+    }
+
+    /* ── WRITING ── */
+    #writing { background: var(--bg-2); }
+
+    .writing-list { display: flex; flex-direction: column; }
+
+    .writing-item {
+      display: grid;
+      grid-template-columns: 8rem 1fr auto;
+      align-items: center; gap: 2.5rem;
+      padding: 2.2rem 0;
+      border-top: 1px solid var(--rule);
+      text-decoration: none; color: inherit;
+      transition: background 0.2s;
+    }
+    .writing-item:last-child { border-bottom: 1px solid var(--rule); }
+    .writing-item:hover .w-title { color: var(--accent); }
+
+    .w-date {
+      font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.08em; color: var(--ink-dim);
+    }
+    .w-title {
+      font-size: 1.15rem; font-weight: 400;
+      color: var(--ink); transition: color 0.2s; line-height: 1.4;
+    }
+    .w-tag {
+      font-size: 0.68rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-dim); border: 1px solid var(--rule);
+      padding: 0.35rem 0.85rem; border-radius: 2rem;
+      white-space: nowrap;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+
+    .contact-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: start;
+    }
+    .contact-text p {
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--ink-mid); line-height: 2;
+      max-width: 40ch; margin-top: 1rem;
+    }
+    .contact-links { display: flex; flex-direction: column; }
+    .c-link {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.8rem 0; border-bottom: 1px solid var(--rule);
+      text-decoration: none; color: var(--ink); transition: color 0.2s;
+    }
+    .c-link:first-child { border-top: 1px solid var(--rule); }
+    .c-link:hover { color: var(--accent); }
+    .c-label { font-size: 1.35rem; font-weight: 400; }
+    .c-detail {
+      font-size: 0.78rem; font-weight: 300;
+      letter-spacing: 0.08em; color: var(--ink-dim);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 3.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--bg-2); border-top: 1px solid var(--rule);
+    }
+    footer p {
+      font-size: 0.72rem; font-weight: 300;
+      letter-spacing: 0.1em; color: var(--ink-dim);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 860px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero { padding-top: 8rem; }
+      .about-wrap, .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .work-item { grid-template-columns: 1fr; }
+      .writing-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .w-tag, .w-date { display: none; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-name">Grace Ling</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-label">New York, NY</p>
+    <h1>Grace Ling</h1>
+    <p class="hero-statement">
+      I've spent 15 years inside financial markets and fintech, building operations, bridging teams, and making complex systems work. I tend to understand how the pieces connect, where things break, and what people actually need. I'm curious about where that experience meets climate, energy, and the startups trying to change both. This is where I share what I'm learning.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Climate Finance</span>
+      <span class="tag">Energy</span>
+      <span class="tag">Fintech</span>
+      <span class="tag">Startups</span>
+      <span class="tag">Builder</span>
+      <span class="tag">Connector</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <div class="about-wrap">
+      <div class="about-left">
+        <p>
+          I grew up in <strong>Jackson Heights, Queens</strong> and started my career at Merrill Lynch and BNP Paribas in New York, in interest rate derivatives trading operations and later institutional sales covering fixed income, credit derivatives, and mortgage-backed securities. A few years in, I moved to San Francisco when BNP transferred me out West.
+        </p>
+        <p>
+          When that chapter closed, I took time off to backpack through South America. It was one of the best decisions I've made. After that I joined early-stage fintechs in the Bay Area. At <strong><a href="https://www.wealthfront.com" target="_blank" style="color: var(--accent); text-decoration: none;">Wealthfront</a></strong>, I helped build the foundational service and brokerage operations functions for an automated investment platform, including the operational systems, workflows, and internal tools that supported new product rollouts as AUM scaled from $2B to $20B. At <strong><a href="https://www.navan.com" target="_blank" style="color: var(--accent); text-decoration: none;">Navan</a></strong>, I worked on operations for an automated expense management platform that connected corporate card transactions with travel policies in real time. Both companies went public in 2025.
+        </p>
+        <p>
+          I tend to be the person who figures out how things actually work. Translating between engineers and compliance teams, designing processes that hold everything together, noticing the gaps before they turn into problems. I went back to school to earn an <strong>MSc in Sustainability Management at Columbia</strong> because I wanted to bring that same energy to climate and energy work. I spent several years consulting on GHG inventories, GRI reporting, and a biodiversity risk framework for ING Group's lending team. Now I'm at Columbia's MS Climate Finance program, helping the next wave of practitioners find their footing in a field that doesn't always make itself easy to navigate.
+        </p>
+        <p>
+          Outside of work, I've studied abroad in New Zealand (where I fell in love with the outdoors), completed a half-Ironman and multiple marathons, and spend as much time as possible hiking, camping, and bike touring. I also really love a good jigsaw puzzle and cooking for people I care about.
+        </p>
+      </div>
+      <div class="about-right">
+        <div class="detail">
+          <span class="detail-k">Current</span>
+          <span class="detail-v">Career Development Officer<br />Columbia MS Climate Finance</span>
+        </div>
+        <div class="detail">
+          <span class="detail-k">Education</span>
+          <span class="detail-v">MSc Sustainability Management, Columbia '23<br />BS Business Administration, Boston University '07</span>
+        </div>
+        <div class="detail">
+          <span class="detail-k">Past</span>
+          <span class="detail-v">Wealthfront · Navan · BNP Paribas · Merrill Lynch</span>
+        </div>
+        <div class="detail">
+          <span class="detail-k">Climate</span>
+          <span class="detail-v">GHG Accounting · GRI Reporting · LCA · Biodiversity Risk</span>
+        </div>
+        <div class="detail">
+          <span class="detail-k">Finance</span>
+          <span class="detail-v">Brokerage Ops · Trading Operations · Fintech Infrastructure · Regulatory Compliance</span>
+        </div>
+        <div class="detail">
+          <span class="detail-k">Languages</span>
+          <span class="detail-v">English · Mandarin (native) · Spanish (novice)</span>
+        </div>
+        <div class="detail">
+          <span class="detail-k">Find me</span>
+          <span class="detail-v">
+            <a href="https://linkedin.com/in/grling" target="_blank">LinkedIn ↗</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <p class="section-label">Work</p>
+    <h2>Things I've Made</h2>
+    <p class="section-intro">Practical tools and resources from the work I do. Built to be useful, not academic. More coming.</p>
+
+    <div class="work-list">
+      <div class="work-item">
+        <div class="work-left">
+          <span class="work-type">Framework · 2026</span>
+          <span class="work-title">Financial Sector Mapping &amp; Barriers to Climate Capital</span>
+          <span class="work-desc">Who are the capital providers in climate finance, what drives them, what are their risk/return constraints, and what's stopping them from doing more? A practical map for anyone trying to understand the players in the room. Built for students, but useful for anyone.</span>
+        </div>
+        <span class="work-status live">Available</span>
+      </div>
+
+      <div class="work-item">
+        <div class="work-left">
+          <span class="work-type">Guide · In Progress</span>
+          <span class="work-title">Career Pathways in Climate Finance</span>
+          <span class="work-desc">A practical guide to finding your angle into climate finance based on where you're actually coming from, not just where you want to go. Covers VC, DFIs, green banks, corporate roles, and climate fintech.</span>
+        </div>
+        <span class="work-status">Coming Soon</span>
+      </div>
+
+      <div class="work-item">
+        <div class="work-left">
+          <span class="work-type">Explainer · In Progress</span>
+          <span class="work-title">Where Does the Climate Money Actually Go?</span>
+          <span class="work-desc">A plain-language breakdown of global climate finance flows. Who's funding what, where the gaps are biggest, and what that means practically for people working in this space.</span>
+        </div>
+        <span class="work-status">Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing">
+    <p class="section-label">Writing</p>
+    <h2>What I'm Thinking About</h2>
+    <p class="section-intro">Notes from the field on climate finance, capital, careers, and the gap between how this industry describes itself and how it actually works.</p>
+
+    <div class="writing-list">
+      <a href="#" class="writing-item">
+        <span class="w-date">Mar 2026</span>
+        <span class="w-title">Understanding What Drives a Capital Provider</span>
+        <span class="w-tag">Climate Finance</span>
+      </a>
+      <a href="#" class="writing-item">
+        <span class="w-date">Feb 2026</span>
+        <span class="w-title">The Jobs Don't Say Climate Finance. Here's Where to Actually Look.</span>
+        <span class="w-tag">Career</span>
+      </a>
+      <a href="#" class="writing-item">
+        <span class="w-date">Jan 2026</span>
+        <span class="w-title">The Gap Nobody Talks About: Adaptation Finance</span>
+        <span class="w-tag">Climate Finance</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrap">
+      <div class="contact-text">
+        <h2>Say hello</h2>
+        <p>I genuinely enjoy meeting people who are building things, thinking hard about climate and energy, or figuring out their next move in this space. Feel free to reach out.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:racelin@gmail.com" class="c-link">
+          <span class="c-label">Email</span>
+          <span class="c-detail">racelin@gmail.com</span>
+        </a>
+        <a href="https://linkedin.com/in/grling" target="_blank" class="c-link">
+          <span class="c-label">LinkedIn</span>
+          <span class="c-detail">grling ↗</span>
+        </a>
+        <a href="https://climate.columbia.edu" target="_blank" class="c-link">
+          <span class="c-label">Columbia Climate School</span>
+          <span class="c-detail">climate.columbia.edu ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Grace Ling — New York, NY</p>
+    <p>Career Development Officer · Columbia MS Climate Finance</p>
+  </footer>
+
+</body>
+</html>
