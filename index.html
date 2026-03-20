@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grace Ling</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:          #1e1b17;
-      --bg-2:        #252119;
-      --bg-3:        #2b271f;
-      --ink:         #f0ece3;
-      --ink-mid:     #c8c2b6;
-      --ink-dim:     #7a746e;
-      --accent:      #c9915a;
-      --accent-soft: rgba(201,145,90,0.15);
-      --rule:        #2a2a26;
-      --font:        'DM Sans', system-ui, sans-serif;
+      --bg:          #1e1a1e;
+      --bg-2:        #1e1a1e;
+      --bg-3:        #1e1a1e;
+      --ink:         #f2ece8;
+      --ink-mid:     #c4b8b0;
+      --ink-dim:     #7a6a72;
+      --accent:      #b87355;
+      --accent-soft: rgba(184,115,85,0.15);
+      --rule:        #2e2a2e;
+      --font:        'Jost', system-ui, sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,7 +44,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.4rem 3.5rem;
-      background: rgba(30,27,23,0.96);
+      background: rgba(30,26,30,0.96);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--rule);
     }
@@ -89,7 +89,7 @@
     }
 
     .hero-statement {
-      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
       font-weight: 300;
       color: var(--ink-mid);
       max-width: 56ch; line-height: 1.8;
@@ -128,7 +128,7 @@
     }
 
     .section-intro {
-      font-size: 1.05rem; font-weight: 300;
+      font-size: 1.15rem; font-weight: 300;
       color: var(--ink-mid);
       max-width: 56ch; line-height: 1.9;
       margin-bottom: 4rem;
@@ -164,7 +164,7 @@
       color: var(--ink-dim);
     }
     .detail-v {
-      font-size: 0.97rem; font-weight: 300;
+      font-size: 1.05rem; font-weight: 300;
       color: var(--ink); line-height: 1.65;
     }
     .detail-v a { color: var(--accent); text-decoration: none; }
@@ -294,14 +294,26 @@
 
     @media (max-width: 860px) {
       nav { padding: 1.2rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.65rem; }
       .hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .hero { padding-top: 8rem; }
+      .hero { padding-top: 8rem; padding-bottom: 4rem; }
+      h1 { font-size: 3.2rem; }
       .about-wrap, .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
       .work-item { grid-template-columns: 1fr; }
       .writing-item { grid-template-columns: 1fr; gap: 0.4rem; }
       .w-tag, .w-date { display: none; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+      [style*="grid-template-columns: 14rem"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.4rem !important;
+      }
+      [style*="grid-template-columns: 1fr 1fr"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+      }
     }
   </style>
 </head>
@@ -312,9 +324,8 @@
     <a href="#" class="nav-name">Grace Ling</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#writing">Writing</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#out-in-the-world">Out in the World</a></li>
+      <li><a href="#contact">Say Hello</a></li>
     </ul>
   </nav>
 
@@ -338,61 +349,86 @@
   <!-- ABOUT -->
   <section id="about">
     <p class="section-label">About</p>
-    <div class="about-wrap">
-      <div class="about-left">
-        <p>
-          I grew up in <strong>Jackson Heights, Queens</strong> and started my career at Merrill Lynch and BNP Paribas in New York, in interest rate derivatives trading operations and later institutional sales covering fixed income & credit derivatives and mortgage-backed securities in San Francisco.
-        </p>
-        <p>
-          When that chapter closed, I took time off to backpack through South America. It was one of the best decisions I've made. After that I joined early-stage fintechs in the Bay Area. At <strong><a href="https://www.wealthfront.com" target="_blank" style="color: var(--accent); text-decoration: none;">Wealthfront</a></strong>, I helped build the foundational service and brokerage operations functions for an automated investment platform, including the operational systems, workflows, and internal tools that supported new product rollouts as AUM scaled from $2B to $20B. At <strong><a href="https://www.navan.com" target="_blank" style="color: var(--accent); text-decoration: none;">Navan</a></strong>, I worked on operations for an automated expense management platform that connected corporate card transactions with travel policies in real time. Both companies went public in 2025.
-        </p>
-        <p>
-          I tend to be the person who figures out how things actually work. Translating between engineers and compliance teams, designing processes that hold everything together, noticing the gaps before they turn into problems. I went back to school to earn an <strong>MSc in Sustainability Management at Columbia</strong> because I wanted to bring that same energy to climate and energy work. I spent several years consulting on GHG inventories, GRI reporting, and a biodiversity risk framework for ING Group's lending team. Now I'm at Columbia's MS Climate Finance program, helping the next wave of practitioners find their footing in a field that doesn't always make itself easy to navigate.
-        </p>
-        <p>
-          Outside of work, I've studied abroad in New Zealand (where I fell in love with the outdoors), completed a half-Ironman and multiple marathons, and spend as much time as possible hiking, camping, and bike touring. I also really love a good jigsaw puzzle and cooking for people I care about.
-        </p>
+
+    <!-- WAYPOINTS -->
+    <div style="margin-bottom: 5rem;">
+      <div style="display: flex; flex-direction: column; gap: 0;">
+
+        <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule);">
+          <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">Jackson Heights, Queens</span>
+          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300;">Where it started. 👋</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule);">
+          <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">Boston + New Zealand</span>
+          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300;">Boston University. First big trips — China, New Zealand. Nature got its hooks in.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule);">
+          <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">New York</span>
+          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300;">Interest rate derivatives trading operations. Merrill Lynch. BNP Paribas.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule);">
+          <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">San Francisco</span>
+          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300;">Institutional sales at BNP. Learning to work West Coast markets.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule);">
+          <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">South America</span>
+          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300;">10 months. 6 countries. 1 very resilient backpack. Countless buses and memories.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule);">
+          <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">San Francisco</span>
+          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300;">Mission driven fintech startups. <a href="https://www.wealthfront.com" target="_blank" style="color: var(--accent); text-decoration: none;">Wealthfront</a> and <a href="https://www.navan.com" target="_blank" style="color: var(--accent); text-decoration: none;">Navan</a>. Building service and operations from scratch alongside great people.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule);">
+          <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">New York</span>
+          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300;">Pivot into climate. MSc in Sustainability Management, climate consulting, Climate Drift accelerator. Now mapping ecosystems, building practitioner networks, and career coaching the next generation of climate finance professionals at Columbia University Climate School.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
+          <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">Where to next?</span>
+          <span style="font-size: 1.05rem; color: var(--ink); font-weight: 400;">Vamos a ver.</span>
+        </div>
+
       </div>
-      <div class="about-right">
-        <div class="detail">
-          <span class="detail-k">Current</span>
-          <span class="detail-v">Career Development Officer<br />Columbia University MS Climate Finance</span>
+    </div>
+
+    <!-- DETAILS SIDEBAR -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;">
+      <div style="font-size: 1rem; color: var(--ink-mid); font-weight: 300; line-height: 2;">
+        Outside of work, I've completed a half-Ironman and multiple marathons, and feel most myself hiking, camping, and bike touring with good company. I also really love a good jigsaw puzzle and yes, I've crocheted a wooble.
+      </div>
+      <div style="display: flex; flex-direction: column; border-top: 1px solid var(--rule);">
+        <div style="display: flex; flex-direction: column; gap: 0.4rem; padding: 1.2rem 0; border-bottom: 1px solid var(--rule);">
+          <span style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim);">Current</span>
+          <span style="font-size: 1.02rem; font-weight: 300; color: var(--ink); line-height: 1.6;">Career Development Officer,<br />Columbia Climate School</span>
         </div>
-        <div class="detail">
-          <span class="detail-k">Education</span>
-          <span class="detail-v">MSc Sustainability Management, Columbia University '23<br />BSc Business Administration, Boston University '07</span>
+        <div style="display: flex; flex-direction: column; gap: 0.4rem; padding: 1.2rem 0; border-bottom: 1px solid var(--rule);">
+          <span style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim);">Past</span>
+          <span style="font-size: 1.02rem; font-weight: 300; color: var(--ink); line-height: 1.6;">Wealthfront · Navan · BNP Paribas · Merrill Lynch</span>
         </div>
-        <div class="detail">
-          <span class="detail-k">Past</span>
-          <span class="detail-v">Wealthfront · Navan · BNP Paribas · Merrill Lynch</span>
+        <div style="display: flex; flex-direction: column; gap: 0.4rem; padding: 1.2rem 0; border-bottom: 1px solid var(--rule);">
+          <span style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim);">Education</span>
+          <span style="font-size: 1.02rem; font-weight: 300; color: var(--ink); line-height: 1.6;">MSc Sustainability Management, Columbia University '23<br />BS Business Administration, Boston University '07</span>
         </div>
-        <div class="detail">
-          <span class="detail-k">Climate</span>
-          <span class="detail-v">GHG Accounting · GRI Reporting · LCA · Biodiversity Risk</span>
-        </div>
-        <div class="detail">
-          <span class="detail-k">Finance</span>
-          <span class="detail-v">Brokerage Ops · Trading Operations · Fintech Infrastructure · Regulatory Compliance</span>
-        </div>
-        <div class="detail">
-          <span class="detail-k">Languages</span>
-          <span class="detail-v">English · Mandarin (native) · Spanish (novice)</span>
-        </div>
-        <div class="detail">
-          <span class="detail-k">Find me</span>
-          <span class="detail-v">
-            <a href="https://linkedin.com/in/grling" target="_blank">LinkedIn ↗</a>
-          </span>
+        <div style="display: flex; flex-direction: column; gap: 0.4rem; padding: 1.2rem 0; border-bottom: 1px solid var(--rule);">
+          <span style="font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim);">Find me</span>
+          <span style="font-size: 1.02rem; font-weight: 300; color: var(--ink);"><a href="https://linkedin.com/in/grling" target="_blank" style="color: var(--accent); text-decoration: none;">LinkedIn ↗</a></span>
         </div>
       </div>
     </div>
+
   </section>
 
-  <!-- WORK -->
-  <section id="work">
-    <p class="section-label">Work</p>
-    <h2>Things I've Made</h2>
-    <p class="section-intro">Practical tools and resources from the work I do. Built to be useful, not academic. More coming.</p>
+  <!-- OUT IN THE WORLD -->
+  <section id="out-in-the-world">
+    <p class="section-label">Out in the World</p>
+    <h2>Things I'm Sharing</h2>
+    <p class="section-intro">Frameworks, guides, and notes from the work I do. More coming as I build it out.</p>
 
     <div class="work-list">
       <div class="work-item">
@@ -403,49 +439,6 @@
         </div>
         <span class="work-status live">Available</span>
       </div>
-
-      <div class="work-item">
-        <div class="work-left">
-          <span class="work-type">Guide · In Progress</span>
-          <span class="work-title">Career Pathways in Climate Finance</span>
-          <span class="work-desc">A practical guide to finding your angle into climate finance based on where you're actually coming from, not just where you want to go. Covers VC, DFIs, green banks, corporate roles, and climate fintech.</span>
-        </div>
-        <span class="work-status">Coming Soon</span>
-      </div>
-
-      <div class="work-item">
-        <div class="work-left">
-          <span class="work-type">Explainer · In Progress</span>
-          <span class="work-title">Where Does the Climate Money Actually Go?</span>
-          <span class="work-desc">A plain-language breakdown of global climate finance flows. Who's funding what, where the gaps are biggest, and what that means practically for people working in this space.</span>
-        </div>
-        <span class="work-status">Coming Soon</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- WRITING -->
-  <section id="writing">
-    <p class="section-label">Writing</p>
-    <h2>What I'm Thinking About</h2>
-    <p class="section-intro">Notes from the field on climate finance, capital, careers, and the gap between how this industry describes itself and how it actually works.</p>
-
-    <div class="writing-list">
-      <a href="#" class="writing-item">
-        <span class="w-date">Mar 2026</span>
-        <span class="w-title">Understanding What Drives a Capital Provider</span>
-        <span class="w-tag">Climate Finance</span>
-      </a>
-      <a href="#" class="writing-item">
-        <span class="w-date">Feb 2026</span>
-        <span class="w-title">The Jobs Don't Say Climate Finance. Here's Where to Actually Look.</span>
-        <span class="w-tag">Career</span>
-      </a>
-      <a href="#" class="writing-item">
-        <span class="w-date">Jan 2026</span>
-        <span class="w-title">The Gap Nobody Talks About: Adaptation Finance</span>
-        <span class="w-tag">Climate Finance</span>
-      </a>
     </div>
   </section>
 
@@ -453,18 +446,11 @@
   <section id="contact">
     <div class="contact-wrap">
       <div class="contact-text">
-        <h2>Say hello</h2>
-        <p>I genuinely enjoy meeting people who are building things, thinking hard about climate and energy, or figuring out their next move in this space. Feel free to reach out.</p>
+        <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--accent); margin-bottom: 0.5rem;">Say hello</h2>
+        <p>Good conversations welcomed.</p>
+        <a href="https://linkedin.com/in/grling" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--accent); text-decoration: none;">LinkedIn ↗</a>
       </div>
       <div class="contact-links">
-        <a href="https://linkedin.com/in/grling" target="_blank" class="c-link">
-          <span class="c-label">LinkedIn</span>
-          <span class="c-detail">grling ↗</span>
-        </a>
-        <a href="https://climate.columbia.edu" target="_blank" class="c-link">
-          <span class="c-label">Columbia Climate School</span>
-          <span class="c-detail">climate.columbia.edu ↗</span>
-        </a>
       </div>
     </div>
   </section>
@@ -472,8 +458,4 @@
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Grace Ling — New York, NY</p>
-    <p>Career Development Officer · Columbia MS Climate Finance</p>
   </footer>
-
-</body>
-</html>
