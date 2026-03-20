@@ -334,7 +334,7 @@
     <p class="hero-label">New York, NY</p>
     <h1>Grace Ling</h1>
     <p class="hero-statement">
-      I've spent 15 years inside financial markets and fintech, building operations, bridging teams, and making complex systems work. I tend to understand how the pieces connect, where things break, and what people actually need. I'm curious about where that experience meets climate, energy, and the startups trying to change both. This is where I share what I'm learning.
+      I've spent 15 years inside financial markets and fintech, building operations, bridging teams, and making complex systems work. I understand how the pieces connect, where things break, and what people actually need. I'm curious about where that experience meets climate, energy, and the startups trying to change both. This is where I share what I'm learning.
     </p>
     <div class="hero-tags">
       <span class="tag">Climate Finance</span>
@@ -391,7 +391,7 @@
 
         <div style="display: grid; grid-template-columns: 14rem 1fr; gap: 2rem; padding: 1.6rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
           <span style="font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);">Where to next?</span>
-          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300; font-style: italic;">Vamos a ver...</span>
+          <span style="font-size: 1.05rem; color: var(--ink-mid); font-weight: 300; font-style: italic;">vamos a ver...</span>
         </div>
 
       </div>
@@ -428,19 +428,203 @@
   <section id="out-in-the-world">
     <p class="section-label">Out in the World</p>
     <h2>Things I'm Sharing</h2>
-    <p class="section-intro">Frameworks, guides, and notes from the work I do. More coming as I build it out.</p>
+    <p class="section-intro">Work, research, personal stories — and whatever else feels worth sharing.</p>
+
+    <style>
+      .card { border-top: 1px solid var(--rule); }
+      .card:last-child { border-bottom: 1px solid var(--rule); }
+      .card-header {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 2rem 0; cursor: pointer; gap: 2rem;
+      }
+      .card-header:hover .card-title { color: var(--accent); }
+      .card-meta { display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+      .card-title {
+        font-size: clamp(1.1rem, 2vw, 1.5rem);
+        font-weight: 400; color: var(--ink);
+        transition: color 0.2s; line-height: 1.3;
+      }
+      .card-type {
+        font-size: 0.7rem; font-weight: 500;
+        letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--accent);
+      }
+      .card-right { display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0; }
+      .card-badge {
+        font-size: 0.68rem; font-weight: 400;
+        letter-spacing: 0.12em; text-transform: uppercase;
+        padding: 0.4rem 0.9rem; border-radius: 2rem;
+        border: 1px solid var(--rule); color: var(--ink-dim);
+        white-space: nowrap;
+      }
+      .card-badge.live { border-color: rgba(184,115,85,0.5); color: var(--accent); }
+      .card-toggle {
+        font-size: 1.2rem; color: var(--ink-dim);
+        transition: transform 0.3s; user-select: none;
+        line-height: 1;
+      }
+      .card-toggle.open { transform: rotate(45deg); }
+      .card-body {
+        display: none; padding-bottom: 2rem;
+      }
+      .card-body.open { display: block; }
+      .card-desc {
+        font-size: 1rem; color: var(--ink-mid);
+        font-weight: 300; line-height: 1.9;
+        max-width: 68ch; margin-bottom: 1rem;
+      }
+      .card-sub-label {
+        font-size: 0.68rem; font-weight: 500;
+        letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--ink-dim); margin: 1.2rem 0 0.6rem;
+      }
+      .card-list {
+        list-style: none; display: flex;
+        flex-direction: column; gap: 0.4rem;
+      }
+      .card-list li {
+        font-size: 0.95rem; color: var(--ink-mid);
+        font-weight: 300; line-height: 1.8;
+        padding-left: 1rem; position: relative;
+      }
+      .card-list li::before {
+        content: '·'; position: absolute;
+        left: 0; color: var(--accent);
+      }
+      .card-links {
+        display: flex; gap: 1.5rem;
+        margin-top: 1.5rem; flex-wrap: wrap;
+      }
+      .card-links a {
+        font-size: 0.72rem; letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--accent);
+        text-decoration: none; transition: opacity 0.2s;
+      }
+      .card-links a:hover { opacity: 0.7; }
+      .card-links a.dim { color: var(--ink-dim); }
+    </style>
 
     <div class="work-list">
-      <div class="work-item">
-        <div class="work-left">
-          <span class="work-type">Framework · 2026</span>
-          <span class="work-title">Financial Sector Mapping &amp; Barriers to Climate Capital</span>
-          <span class="work-desc">Who are the capital providers in climate finance, what drives them, what are their risk/return constraints, and what's stopping them from doing more? A practical map for anyone trying to understand the players in the room. Built for students, but useful for anyone.</span>
+
+      <!-- CARD 1 -->
+      <div class="card">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="card-meta">
+            <span class="card-type">Framework · Coming Soon</span>
+            <span class="card-title">Financial Sector Mapping &amp; Barriers to Climate Capital</span>
+          </div>
+          <div class="card-right">
+            
+            <span class="card-toggle">+</span>
+          </div>
         </div>
-        <span class="work-status live">Available</span>
+        <div class="card-body">
+          <p class="card-desc">Who are the capital providers in climate finance, what drives them, what are their risk/return constraints, and what's stopping them from doing more? A practical map for anyone trying to understand the players in the room. Built for students, but useful for anyone.</p>
+          <div class="card-links">
+            <a href="#">View Mapping ↗</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+
+      <!-- CARD 2 -->
+      <div class="card">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="card-meta">
+            <span class="card-type">Consulting Deliverable · 2022</span>
+            <span class="card-title">Biodiversity Risk Framework for Agricultural Lending</span>
+          </div>
+          <div class="card-right">
+            
+            <span class="card-toggle">+</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">A due diligence framework developed for ING Group's wholesale lending practice to help risk analysts assess biodiversity exposure in agricultural supply chains. No existing tools could translate biodiversity loss into banking risk metrics, so the team built one from scratch.</p>
+          <p class="card-sub-label">Key Findings</p>
+          <ul class="card-list">
+            <li>Five commodities account for the majority of agricultural biodiversity risk: beef/dairy, soy, palm oil, timber, and rubber.</li>
+            <li>Brazil's soy production carries the highest risk — 20% of exports to the EU are linked to illegally deforested areas. The Amazon Soy Moratorium doesn't cover the Cerrado, where deforestation continues.</li>
+            <li>Traceability is the most practical risk signal: if a company cannot trace commodity origin, that alone warrants enhanced due diligence.</li>
+            <li>No single global standard covers all five sectors — analysts must triangulate across multiple certification bodies depending on the commodity.</li>
+            <li>This type of work now sits under the emerging TNFD framework, which formalizes nature-related financial disclosure for institutions.</li>
+          </ul>
+          <p class="card-sub-label">Key Resources Referenced</p>
+          <ul class="card-list">
+            <li>IBAT — Integrated Biodiversity Assessment Tool</li>
+            <li>ENCORE — mapping sector dependencies on ecosystem services</li>
+            <li>Trase.Earth — supply chain traceability data</li>
+            <li>WWF 2050 Criteria, RSPO (palm oil), FSC (timber), GRSB (beef)</li>
+            <li>Brazil's Rural Environmental Registry (CAR) — baseline for Forest Code compliance</li>
+            <li>CITES Appendix I species listings for timber transactions</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="card-meta">
+            <span class="card-type">Term Paper · 2021</span>
+            <span class="card-title">Water Privatization and Markets: Practical or Idealistic?</span>
+          </div>
+          <div class="card-right">
+            
+            <span class="card-toggle">+</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">A case study of Chile's 1981 Water Code — one of the world's most cited examples of free-market water governance. The paper argues that while the Code helped fuel Chile's agricultural export economy, it failed to create a true functioning market. Instead it enabled water monopolization, marginalized small farmers, and contributed to a human rights crisis in water-scarce regions. The lesson: markets require institutional infrastructure, not just property rights.</p>
+          <div class="card-links">
+            <a href="#">Read on Substack ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="card">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="card-meta">
+            <span class="card-type">Capstone Research · 2023</span>
+            <span class="card-title">What is Coral Worth to Monroe County, Florida?</span>
+          </div>
+          <div class="card-right">
+            
+            <span class="card-toggle">+</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">My contribution to a Columbia University capstone project for the Coral Restoration Foundation. I researched and quantified the economic value of coral reef coverage to Monroe County — showing how reef health directly underpins the two industries that drive the local economy: tourism ($2.5B in annual spending, 43% of all local jobs) and commercial fishing ($63M/yr in landings, led by spiny lobsters that depend on reef habitat for survival). The work connects environmental science to financial impact in concrete terms.</p>
+          <div class="card-links">
+            <a href="CRF REPORT Excerpt.pdf" target="_blank">My Section ↗</a>
+            <a href="https://afddf8e8-2dfc-4526-9ba6-71e1899413f3.filesusr.com/ugd/0e3377_7605951cf0d24d2991561acc0ddde6b2.pdf" target="_blank" class="dim">Full Report ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="card">
+        <div class="card-header" onclick="toggleCard(this)">
+          <div class="card-meta">
+            <span class="card-type">Personal Story · 2019</span>
+            <span class="card-title">What I Sent After Not Getting the Job</span>
+          </div>
+          <div class="card-right">
+            <span class="card-toggle">+</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">In late 2019 I interviewed at Stripe for a role on their financial services operations team. I didn't get the job. A few days later I sent them a detailed operational framework anyway — just to be useful. The response called it a clear strength. She later reached out about another opportunity. I turned it down to pursue climate work. That company went public. I have mixed feelings about it. But I'd probably make the same call again.</p>
+          <div class="card-links">
+            <a href="#" target="_blank">Read on Substack ↗</a>
+          </div>
+        </div>
+      </div>
+      const body = header.nextElementSibling;
+      const toggle = header.querySelector('.card-toggle');
+      body.classList.toggle('open');
+      toggle.classList.toggle('open');
+    }
+  </script>
 
   <!-- CONTACT -->
   <section id="contact">
