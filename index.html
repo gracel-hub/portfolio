@@ -32,6 +32,11 @@
       font-size: 16px;
     }
 
+    .site-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
     body::after {
       content: '';
       position: fixed; inset: 0;
@@ -147,6 +152,7 @@
       font-size: 1.05rem; font-weight: 300;
       color: var(--ink-mid);
       line-height: 2; margin-bottom: 1.5rem;
+      max-width: 60ch;
     }
     .about-left p strong { color: var(--ink); font-weight: 500; }
 
@@ -321,13 +327,17 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-name">Grace Ling</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#out-in-the-world">Out in the World</a></li>
-      <li><a href="#contact">Say Hello</a></li>
-    </ul>
+    <div class="site-wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="#" class="nav-name">Grace Ling</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#out-in-the-world">Out in the World</a></li>
+        <li><a href="#contact">Say Hello</a></li>
+      </ul>
+    </div>
   </nav>
+
+  <div class="site-wrap">
 
   <!-- HERO -->
   <div class="hero">
@@ -619,6 +629,12 @@
           </div>
         </div>
       </div>
+
+    </div>
+  </section>
+
+  <script>
+    function toggleCard(header) {
       const body = header.nextElementSibling;
       const toggle = header.querySelector('.card-toggle');
       body.classList.toggle('open');
@@ -627,19 +643,17 @@
   </script>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-wrap">
-      <div class="contact-text">
-        <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--accent); margin-bottom: 0.5rem;">Say hello</h2>
-        <p>Good conversations welcomed.</p>
-        <a href="https://linkedin.com/in/grling" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--accent); text-decoration: none;">LinkedIn ↗</a>
-      </div>
-      <div class="contact-links">
-      </div>
-    </div>
+  <section id="contact" style="background: var(--bg-2); padding-left: 3.5rem; padding-right: 3.5rem;">
+    <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--accent); margin-bottom: 0.5rem;">Say hello</h2>
+    <p style="font-size: 1.05rem; font-weight: 300; color: var(--ink-mid); line-height: 2; margin-top: 0.5rem;">Good conversations welcomed.</p>
+    <a href="https://linkedin.com/in/grling" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--accent); text-decoration: none;">LinkedIn ↗</a>
   </section>
+
+  </div><!-- end site-wrap -->
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Grace Ling — New York, NY</p>
+    <div class="site-wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <p>© 2026 Grace Ling — New York, NY</p>
+    </div>
   </footer>
